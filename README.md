@@ -1,5 +1,5 @@
-# 9.5Master
-Reverse engineering resources for 9.5th gen Honda (2016/2017)
+# NinePfive
+Reverse engineering resources and tools for 9.5th gen Honda (2016/2017)
 
 
 # Mode 0x27 41/42
@@ -23,14 +23,14 @@ ECU → Tester: 67 42
 ```
 
 ```C
-/* 2.4L, tag 0x15 */
-uint32_t key_24(uint32_t s)
+/* 2.4L I4, tag 0x15 */
+uint32_t key_i4(uint32_t s)
 {
     uint32_t x = s + 0xAA64D267;
     return (s ^ (x >> 3 | x << 29) ^ (s >> 16) * (s & 0xFFFF)) + 0xF9849207;
 }
 
-/* V6, tag 0x0C */
+/* 3.5L V6, tag 0x0C */
 uint32_t key_v6(uint32_t s)
 {
     uint32_t x = s + 0x2584E18A;
